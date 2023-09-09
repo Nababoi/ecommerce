@@ -1,0 +1,30 @@
+.navbarCustom{
+    background-color: #f5867f !important;
+}
+
+.navbar-brand{
+    font-weight:500;
+    letter-spacing: 0.2rem;
+    margin: 0 3rem 0 0;
+    font-size: 2rem;
+
+}
+
+.nav-link{
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    margin: 1rem;
+    flex-grow: 1;
+}
+
+
+/* Estilos Contenedor */
+.ContenedorProductos{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    margin: 1rem;
+}
