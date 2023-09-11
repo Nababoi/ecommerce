@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/e5cc728d9d.js" crossorigin="anonymous"></script>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary navbarCustom">
+  <nav class="navbar navbar-expand-lg navbarCustom">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">AMOR & MODA</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,18 +44,21 @@
       <div class="modal-body">
 
       <div>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <form class="ContenedorFormFiltrado" action="Controlador/C_filtrado.php" method= "POST" enctype="multipart/form-data">
+    <input type="text" class="form-control" name = "producto" />
     <div id="filtrado" class="form-text"></div>
     </div>
 
     </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Subir</button>
       </div>
     </div>
   </div>
 </div>  
+</form>
+
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">            
