@@ -27,8 +27,7 @@
                 echo '</div>';
                 echo '<div class="col-md-4 contenedorDetallesU">';
                 echo '<h2 class="tituloU">' . $fila["nombre"] . '</h2>';
-                echo '<h2 class="tituloU">' . $fila["id"] . '</h2>';
-                echo '<p class="precioU">$' . $fila["precio"] . '</p>';
+                echo '<input type="hidden" class="idU" value="' . $fila["id"] . '" readonly>'; // Input oculto y de solo lectura
                 echo '<div class="ContenedorTalles">';
                 $mostradoDetalles = true; // Marcar como mostrados los detalles del producto
             }
