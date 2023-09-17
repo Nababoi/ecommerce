@@ -5,9 +5,11 @@
 
         public function obtenerProductoUnidad($id){
             require ("conexion.php");
-            $query = "SELECT * FROM productos where id = ?";
+            $query = "select pt.id, pt.cantidad ,p.img ,p.nombre, p.precio, t.talleCodigo from productos p 
+            JOIN producto_talle pt on pt.idProducto = p.id 
+            JOIN talle t on t.id = pt.idTalle where p.id = ?;
+            ";
             $stmt = $conn->prepare($query);
-
             $stmt->bind_param("s", $id);
             $stmt->execute();
             

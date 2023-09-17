@@ -59,3 +59,75 @@
     border: none;
     background: none ;
 }
+
+/* Vista producto unitario */
+.ContenedorTalles{
+    display: flex;
+}
+
+.contenedorFotoProductoU{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.imagenU{
+    width: 30rem !important;    
+}
+.contenedorDetallesU{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tituloU{
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.7rem;
+    margin: 0;
+}
+.precioU{
+    font-size: 1.6rem;
+    letter-spacing: 0.2rem;
+    margin: 0;
+}
+
+.recuadro{
+    background-color: none;
+    border: gray solid 2.5px;
+}
+
+.recuadro {
+    width: 50px;
+    height: 50px;
+    /* border: 1px solid #ccc; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.inputU{
+    width: 15% !important;
+    border: gray solid 2.5px !important;
+
+}
+
+/* Estilos para el texto dentro de los recuadros */
+.valor {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.botonU{
+    background-color: #f5867f !important;
+    font-size: 1.5rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    font-weight: 500 !important;
+}
+
