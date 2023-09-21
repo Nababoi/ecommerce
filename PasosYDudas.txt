@@ -6,6 +6,8 @@ con el total en la tabla producto_talle.
 un form.(En caso de enviar los datos con un form modificar los inputs 
 para que sean de solo lectura y modificar el diseño del input para que parezca 
 mas informacion que entrada de datos)
+(LISTO, se uso formulario, habria que modificarlo para que se agregue a un carrito
+y del carrito se implemente esto, pero la funcionalidad ya esta)
 
 -Ver tdd(ni idea)
 

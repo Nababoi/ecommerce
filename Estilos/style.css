@@ -63,6 +63,7 @@
 /* Vista producto unitario */
 .ContenedorTalles{
     display: flex;
+    flex-direction: column;
 }
 
 .contenedorFotoProductoU{
@@ -75,6 +76,9 @@
 .imagenU{
     width: 30rem !important;    
 }
+
+/* .ContenedorTalleU{
+} */
 .contenedorDetallesU{
     display: flex;
     justify-content: center;

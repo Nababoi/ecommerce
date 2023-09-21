@@ -17,6 +17,17 @@
             return $stmt->get_result();
     }
 
+        public function comprarProducto($id,$cantidad){
+            require("conexion.php");
+            $query = "call compraProducto(?,?)";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("ss", $id,$cantidad);
+            $stmt->execute();
+            
+            // Devolvemos el resultado de la consulta
+            return $stmt->get_result();
+        }
+
 }
     
 ?>
