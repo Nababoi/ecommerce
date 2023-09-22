@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="Estilos/style.css">
+    <link rel="stylesheet" href="../Estilos/style.css">
     <script src="https://kit.fontawesome.com/e5cc728d9d.js" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -44,7 +44,7 @@
       <div class="modal-body">
 
       <div>
-      <form class="ContenedorFormFiltrado" action="Controlador/C_filtrado.php" method= "POST" enctype="multipart/form-data">
+      <form class="ContenedorFormFiltrado" action="../Controlador/C_filtrado.php" method= "POST" enctype="multipart/form-data">
     <input type="text" class="form-control" name = "producto" />
     <div id="filtrado" class="form-text"></div>
     </div>
@@ -63,6 +63,10 @@
         <li class="nav-item">
           <a class="nav-link" href="#">            
           <i class="fas fa-shopping-cart"></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="./Vistas/V_login.php">login prueba</a>
         </li>
         
       </ul>
