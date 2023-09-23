@@ -34,7 +34,7 @@
                             <a href="../Vistas/V_formProductoMod.php?id=<?php echo $fila['id'];?>" class="btn btn-warning btn-sm">
                                 <i class="fas fa-pencil-alt"></i> Editar
                             </a>
-                            <a href="eliminar.php?id=<?php echo $fila['id']; ?>" class="btn btn-danger btn-sm">
+                            <a href="../Controlador/C_productoBorrar.php?id=<?php echo $fila['id'];?>" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash"></i> Eliminar
                             </a>
                         </td>
@@ -42,7 +42,7 @@
                 <?php } ?>
             </tbody>
         </table>
-        <a href="../Vistas/V_formularioProducto.php" class="btn btn-success">Agregar Producto</a>
+        <a href="../Vistas/V_formProductoAlta.php" class="btn btn-success">Agregar Producto</a>
     </div>
 </div>
 </body>
