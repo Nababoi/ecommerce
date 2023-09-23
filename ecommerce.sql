@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-09-2023 a las 01:05:24
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 23-09-2023 a las 23:29:35
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,7 +60,7 @@ DELIMITER ;
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `categoriaNombre` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `categorias`
@@ -85,7 +85,7 @@ CREATE TABLE `productos` (
   `precio` int(11) DEFAULT NULL,
   `categoriaId` int(11) DEFAULT NULL,
   `img` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -124,7 +124,7 @@ CREATE TABLE `producto_talle` (
   `idProducto` int(11) DEFAULT NULL,
   `idTalle` int(11) DEFAULT NULL,
   `cantidad` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `producto_talle`
@@ -151,7 +151,7 @@ INSERT INTO `producto_talle` (`id`, `idProducto`, `idTalle`, `cantidad`) VALUES
 (59, 18, 4, 100),
 (60, 19, 4, 100),
 (61, 20, 4, 100),
-(93, 1, 3, 100),
+(93, 1, 3, 91),
 (94, 2, 3, 100),
 (95, 3, 3, 100),
 (96, 4, 3, 100),
@@ -182,7 +182,7 @@ CREATE TABLE `talle` (
   `id` int(11) NOT NULL,
   `talleCodigo` varchar(4) DEFAULT NULL,
   `talleNombre` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `talle`
@@ -195,6 +195,30 @@ INSERT INTO `talle` (`id`, `talleCodigo`, `talleNombre`) VALUES
 (4, 'L', 'Grande'),
 (5, 'XL', 'extra grande'),
 (6, 'XXL', 'doble extra grande');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `telefono` varchar(50) DEFAULT NULL,
+  `valorSalt` varchar(50) DEFAULT NULL,
+  `hashContrasena` varchar(100) NOT NULL,
+  `esAdmin` varchar(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `telefono`, `valorSalt`, `hashContrasena`, `esAdmin`) VALUES
+(9, 'Elias', 'Alegre', 'eliasalegre96@gmail.com', '01130615889', 'ada07e0f5a8d01eebf257160f31b8e7d', '$2y$10$S1Nah4kkBKLgHJ7vTHtYXO5Exx.bquaiLecH65uez1mdADd2Luc/W', 'no');
 
 --
 -- Índices para tablas volcadas
@@ -228,6 +252,12 @@ ALTER TABLE `talle`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -254,6 +284,12 @@ ALTER TABLE `producto_talle`
 --
 ALTER TABLE `talle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
