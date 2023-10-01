@@ -22,12 +22,22 @@
     padding: 0;
 }
 
+/* body{
+} */
 
 /* Estilos Contenedor */
+.ContenedorPadre{
+    /* filter: brightness(0.5);     */
+    background-image: url(../img/fondoFlores.jpg);
+
+}
 .ContenedorProductos{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 0 8rem 0 8rem;
+
+
 }
 
 .card{
@@ -46,7 +56,7 @@
 
 .card-title{
     font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .card-text{

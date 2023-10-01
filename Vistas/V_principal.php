@@ -8,10 +8,11 @@
     <!-- Despues cambiar en document el nombre del producto -->
 </head>
 <body>
+  <div class="ContenedorPadre">
 <div class="ContenedorProductos">
     <?php
     while ($fila = mysqli_fetch_assoc($datosProductos)){?>
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 12rem;">
   <img src="<?php echo $fila["img"];?>" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title"><?php echo $fila["nombre"];?>
@@ -22,6 +23,7 @@
   </div>
 </div>
 <?php } ?>
+</div>
 </div>
 </div>
 </body>
