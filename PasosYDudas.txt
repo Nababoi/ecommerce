@@ -1,6 +1,6 @@
 -Dentro del archivo V_productoU.php ver como tomar los datos para que se llame a un procedure
 implementado en la base de datos y que reste la cantidad tomada de esa vista y la reste
-con el total en la tabla producto_talle.
+con el total en la tabla producto_talle.(listo)
 
 -Ver si es mejor tomar los datos mencionados mediante el id con js o enviar los datos mediante
 un form.(En caso de enviar los datos con un form modificar los inputs 
@@ -12,8 +12,9 @@ y del carrito se implemente esto, pero la funcionalidad ya esta)
 -Ver tdd(ni idea)
 
 -Hacer la parte del admin(crud de productos y usuarios(facilito))
+(Falta crud de usuarios y vendedores)
 
--Implementar el carrito de compras
+-Implementar el carrito de compras(listo)
 
 -Crear las otras secciones del sitio(nosotros,contacto,como comprar)
 

@@ -9,6 +9,8 @@
     <script src="https://kit.fontawesome.com/e5cc728d9d.js" crossorigin="anonymous"></script>
   </head>
   <body>
+  <script src="../Modelos/detalleProducto.js"></script>
+
   <nav class="navbar navbar-expand-lg navbarCustom">
   <div class="container-fluid">
     <a class="navbar-brand" href="../index.php">AMOR & MODA</a>
@@ -44,7 +46,7 @@
       <div class="modal-body">
 
       <div>
-      <form class="ContenedorFormFiltrado" action="../Controlador/C_filtrado.php" method= "POST" enctype="multipart/form-data">
+      <form class="ContenedorFormFiltrado" action="Controlador/C_filtrado.php" method= "POST" enctype="multipart/form-data">
     <input type="text" class="form-control" name = "producto" />
     <div id="filtrado" class="form-text"></div>
     </div>
@@ -61,18 +63,48 @@
 
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">            
-          <i class="fas fa-shopping-cart"></i></a>
-        </li>
+        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#carritoModal">
+    <i class="fas fa-shopping-cart"></i>
+</a>
 
-        <li class="nav-item">
-          <a class="nav-link" href="./Vistas/V_login.php">login prueba</a>
         </li>
+        
+        <a class="nav-link" href="./Vistas/V_login.php">
+        <i class="fas fa-user"></i>
+        </a>
+
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="./Vistas/V_login.php">login prueba</a>
+        </li> -->
         
       </ul>
     </div>
   </div>
 </nav>
+<!-- Modal del Carrito -->
+<div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="carritoModalLabel">Tu Carrito de Compras</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí puedes agregar la lista de productos en el carrito -->
+                <ul>
+               
+                    <!-- Agrega más productos aquí -->
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Comprar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>

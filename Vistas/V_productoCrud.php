@@ -8,6 +8,13 @@
     <!-- Después cambiar en el documento el nombre del producto -->
 </head>
 <body>
+<?php
+// Verificar si el usuario es un administrador
+session_start();
+if (isset($_SESSION['esadmin']) && $_SESSION['esadmin'] === 'si') {
+    // El usuario es un administrador, muestra el contenido de la vista
+?>
+
 <?php require("../Vistas/navbar.php"); ?>
 
 <div class="ContenedorProductos">
@@ -45,5 +52,13 @@
         <a href="../Vistas/V_formProductoAlta.php" class="btn btn-success">Agregar Producto</a>
     </div>
 </div>
+<?php
+} else {
+    // El usuario no es un administrador, puedes mostrar un mensaje o redirigir a otra página
+    echo "No tienes permisos para acceder a esta página.";
+    // O puedes redirigir al usuario a otra página:
+    // header("Location: otra_pagina.php");
+}
+?>
 </body>
 </html>

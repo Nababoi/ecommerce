@@ -12,6 +12,10 @@
             return $resultado;
     }
 
+        public function carrito(){
+            require("conexion.php");
+        }
+
 }
     
 ?>

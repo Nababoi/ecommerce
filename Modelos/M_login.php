@@ -16,7 +16,20 @@ class Login {
 
             $resultado = $resultado->get_result();
             
-            return $resultado;
+            if($resultado->num_rows > 0){
+                $fila = $resultado->fetch_assoc();
+                session_start();
+                $_SESSION['nombre'] = $fila['nombre'];
+                $_SESSION['esadmin'] = $fila['esAdmin'];
+                if ($fila['esAdmin'] == 'si') {
+                    header("Location: ../Controlador/C_productoCrud.php");
+                } else {
+                    header("Location: ../index.php");
+                }            }else{
+                session_start();
+                $_SESSION['error'] = "Datos incorrectos";
+                header("Location: ../index.php");
+            }
 
         }catch(Exception $e){
             header("Location: ../Vistas/V_error.php");
