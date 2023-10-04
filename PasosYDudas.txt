@@ -42,3 +42,13 @@ que resta la cantidad. Los pasos:
 
 -Crear footer
 
+Hugo:
+Implementar la api de MP
+Adaptar todo el diseño del ecommerce al diseño que hizo elias en la parte del registro de usuario
+cambiar el navbar
+
+Elias:
+Implementar la vista de los vendedores(usuarios)
+Implementar la funcion agregar stock en la vista de la administracion del producto
+Crear el footer
+
