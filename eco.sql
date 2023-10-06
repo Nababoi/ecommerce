@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-09-2023 a las 23:29:35
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 06-10-2023 a las 21:27:12
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `ecommerce`
+-- Base de datos: `eco`
 --
 
 DELIMITER $$
@@ -49,6 +49,40 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `compraProducto` (IN `p_ProductoTall
     WHERE id = p_ProductoTalleId;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `compraProductos` (IN `p_ProductoTalleId` INT, IN `p_cantidadVender` INT)   BEGIN
+    DECLARE v_ProductoTalleId INT;
+    DECLARE v_cantidadProductoTalle INT;
+	DECLARE v_cantidadActual INT;
+    
+
+    -- Obtener el ID en producto talle
+    SELECT id INTO v_ProductoTalleId
+    FROM producto_talle
+    WHERE id = p_ProductoTalleId;
+    
+    -- Obtener cantidad en la tabla producto talle
+    SELECT cantidad INTO v_cantidadProductoTalle
+    FROM producto_talle
+    WHERE id = p_ProductoTalleId;
+    
+    SET v_cantidadActual = v_cantidadProductoTalle - p_cantidadVender;
+
+    -- Actualizar la cantidad en alumno materia
+    UPDATE producto_talle
+    SET cantidad = v_cantidadActual
+    WHERE id = p_ProductoTalleId;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modProducto` (IN `p_id` INT, IN `p_nombre` VARCHAR(20), IN `p_precio` INT, IN `p_categoria` VARCHAR(20))   BEGIN
+    DECLARE v_categoriaId INT;
+    
+    -- Obtener el ID en categoria mediante parametro
+    SELECT id INTO v_categoriaId
+    FROM categorias
+    WHERE  categoriaNombre = p_categoria;
+	UPDATE productos set nombre = p_nombre, precio = p_precio, categoriaId = v_categoriaId where id = p_id;
+END$$
+
 DELIMITER ;
 
 -- --------------------------------------------------------
@@ -60,7 +94,7 @@ DELIMITER ;
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `categoriaNombre` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `categorias`
@@ -84,34 +118,58 @@ CREATE TABLE `productos` (
   `nombre` varchar(20) DEFAULT NULL,
   `precio` int(11) DEFAULT NULL,
   `categoriaId` int(11) DEFAULT NULL,
-  `img` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `img` varchar(50) DEFAULT NULL,
+  `fechaAlta` datetime DEFAULT NULL,
+  `usuarioAlta` varchar(255) DEFAULT NULL,
+  `fechaMod` datetime DEFAULT NULL,
+  `usuarioMod` varchar(255) DEFAULT NULL,
+  `fechaBaja` datetime DEFAULT NULL,
+  `usuarioBaja` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `nombre`, `precio`, `categoriaId`, `img`) VALUES
-(1, 'euphoria', 9200, 1, 'img/euphoria.webp'),
-(2, 'farah', 8400, 1, 'img/farah.webp'),
-(3, 'helen', 7800, 1, 'img/helen.webp'),
-(4, 'nerea', 6300, 1, 'img/nerea.webp'),
-(5, 'nature', 5300, 1, 'img/nature.webp'),
-(6, 'selena', 5600, 2, 'img/selena.webp'),
-(7, 'constance', 6500, 2, 'img/constance.webp'),
-(8, 'dream', 12000, 2, 'img/dream.webp'),
-(9, 'lucky', 5600, 2, 'img/lucky.webp'),
-(10, 'happy', 8900, 3, 'img/happy.webp'),
-(11, 'margie', 8600, 3, 'img/margie.webp'),
-(12, 'jackie', 14900, 3, 'img/jackie.webp'),
-(13, 'ornella', 14900, 3, 'img/ornella.webp'),
-(14, 'alegra', 8800, 3, 'img/allegra.webp'),
-(15, 'nikki', 24800, 3, 'img/nikki.webp'),
-(16, 'lukka', 15600, 4, 'img/lukka.webp'),
-(17, 'dylan', 10400, 4, 'img/dylan.webp'),
-(18, 'mikkel', 13900, 4, 'img/mikkel.webp'),
-(19, 'selva', 22400, 5, 'img/selva.webp'),
-(20, 'parker', 14600, 4, 'img/parker.webp');
+INSERT INTO `productos` (`id`, `nombre`, `precio`, `categoriaId`, `img`, `fechaAlta`, `usuarioAlta`, `fechaMod`, `usuarioMod`, `fechaBaja`, `usuarioBaja`) VALUES
+(1, 'euphoria', 9200, 1, 'img/euphoria.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'farah', 8400, 1, 'img/farah.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'helen', 7800, 1, 'img/helen.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'nerea', 6300, 1, 'img/nerea.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'nature', 5300, 1, 'img/nature.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'selena', 5600, 2, 'img/selena.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'constance', 6500, 2, 'img/constance.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 'dream', 12000, 2, 'img/dream.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'lucky', 5600, 2, 'img/lucky.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 'happy', 8900, 3, 'img/happy.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'margie', 8600, 3, 'img/margie.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 'jackie', 14900, 3, 'img/jackie.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 'ornella', 14900, 3, 'img/ornella.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 'alegra', 8800, 3, 'img/allegra.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 'nikki', 24800, 3, 'img/nikki.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 'lukka', 15600, 4, 'img/lukka.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 'dylan', 10400, 4, 'img/dylan.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(18, 'mikkel', 13900, 4, 'img/mikkel.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 'selva', 22400, 5, 'img/selva.webp', NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 'parker', 14600, 4, 'img/parker.webp', NULL, NULL, NULL, NULL, NULL, NULL);
+
+--
+-- Disparadores `productos`
+--
+DELIMITER $$
+CREATE TRIGGER `insertProducto` BEFORE INSERT ON `productos` FOR EACH ROW BEGIN
+    SET NEW.usuarioAlta = USER();
+    SET NEW.fechaAlta = NOW();
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `updateProductos` BEFORE UPDATE ON `productos` FOR EACH ROW BEGIN
+    SET NEW.usuarioMod = USER();
+    SET NEW.fechaMod = NOW();
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -124,16 +182,16 @@ CREATE TABLE `producto_talle` (
   `idProducto` int(11) DEFAULT NULL,
   `idTalle` int(11) DEFAULT NULL,
   `cantidad` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `producto_talle`
 --
 
 INSERT INTO `producto_talle` (`id`, `idProducto`, `idTalle`, `cantidad`) VALUES
-(42, 1, 4, 96),
-(43, 2, 4, 100),
-(44, 3, 4, 100),
+(42, 1, 4, 98),
+(43, 2, 4, 99),
+(44, 3, 4, 99),
 (45, 4, 4, 100),
 (46, 5, 4, 100),
 (47, 6, 4, 100),
@@ -151,7 +209,7 @@ INSERT INTO `producto_talle` (`id`, `idProducto`, `idTalle`, `cantidad`) VALUES
 (59, 18, 4, 100),
 (60, 19, 4, 100),
 (61, 20, 4, 100),
-(93, 1, 3, 91),
+(93, 1, 3, 100),
 (94, 2, 3, 100),
 (95, 3, 3, 100),
 (96, 4, 3, 100),
@@ -182,7 +240,7 @@ CREATE TABLE `talle` (
   `id` int(11) NOT NULL,
   `talleCodigo` varchar(4) DEFAULT NULL,
   `talleNombre` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `talle`
@@ -211,14 +269,16 @@ CREATE TABLE `usuarios` (
   `valorSalt` varchar(50) DEFAULT NULL,
   `hashContrasena` varchar(100) NOT NULL,
   `esAdmin` varchar(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `telefono`, `valorSalt`, `hashContrasena`, `esAdmin`) VALUES
-(9, 'Elias', 'Alegre', 'eliasalegre96@gmail.com', '01130615889', 'ada07e0f5a8d01eebf257160f31b8e7d', '$2y$10$S1Nah4kkBKLgHJ7vTHtYXO5Exx.bquaiLecH65uez1mdADd2Luc/W', 'no');
+(9, 'Elias', 'Alegre', 'eliasalegre96@gmail.com', '01130615889', 'ada07e0f5a8d01eebf257160f31b8e7d', '$2y$10$S1Nah4kkBKLgHJ7vTHtYXO5Exx.bquaiLecH65uez1mdADd2Luc/W', 'no'),
+(12, 'Lucas', 'Navarro', 'navarrolucas4668@gmail.com', '01127535916', '885a9fa3390379f00a5b5ea492eb2a9f', '$2y$10$59JSpFY3N5161vHBnkOu6ez3zG219scm2rHkCAf3anuriqGe.T7vS', 'si'),
+(13, 'pruebaUsuario', 'pa', 'prueba@gmail.com', '1127535913', 'e3c05891a4d7cd98d4e8aa061179cde1', '$2y$10$hOL1Sp48Y6yd.X4aZn047Ox/qoB6K9T.G99XGWzT3tUcuCfW07wsK', 'no');
 
 --
 -- Índices para tablas volcadas
@@ -289,7 +349,7 @@ ALTER TABLE `talle`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
