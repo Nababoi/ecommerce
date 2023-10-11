@@ -48,17 +48,13 @@ a{
     font-size: 20px; 
     color: white;
     display: flex;
+    
 }
 
 .icono-y-texto {
     color: #ffffff;
     display: inline-flex; /* Establece el contenedor como un flex container */
     align-items: center; /* Centra verticalmente los elementos en el contenedor */
+    
   }
-
-
-
-
-  
-
   

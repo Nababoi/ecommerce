@@ -21,6 +21,7 @@
     letter-spacing: 0.1rem;
     /* margin: 1rem; */
     padding: 0;
+    color: #ffffff !important;
 }
 
 
@@ -150,7 +151,9 @@
 }
 
 .nav-item:hover .nav-link {
-    color: #f5867f !important; 
+    color: #ff91b6 !important; 
   }
   
+  
+
 

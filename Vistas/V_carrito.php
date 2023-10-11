@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("navbar.php");
+header("navbar.php");
 
 // Verifica si hay productos en el carrito
 if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
@@ -39,7 +39,7 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
     echo '<div class="text-center">';
     echo '<p>Total $: ' . $total . '</p>';
     echo '<form method="post" action="../Controlador/C_realizarCompra.php">
-    <button type="submit" class="btn btn-primary" name="comprar">Comprar</button>
+    <button type="submit" class="btn btn-primary" name="comprar">Pagar</button>
     </form>
     ';
     echo '</div>';
@@ -52,6 +52,7 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
 }
 
 // Puedes agregar un botón de compra o continuar comprando aquí
+
 
 //footer
 require("footer.php");

@@ -8,6 +8,7 @@
     <!-- Despues cambiar en document el nombre del producto -->
 </head>
 <body>
+
   <div class="ContenedorPadre">
 <div class="ContenedorProductos">
     <?php

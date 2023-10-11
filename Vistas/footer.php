@@ -85,7 +85,7 @@
   <!-- Grid container -->
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: #f5867f;">
+  <div class="text-center p-3" style="background-color: #ff91b6;">
     © 2023 Copyright:
     <a class="text-white">Amor & Moda</a>
   </div>
