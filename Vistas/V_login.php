@@ -66,7 +66,7 @@
                             <a href="../Vistas/V_error.php">Olvide mi contraseña</a>
                         </div>
                         <div>
-                            <a href="../Vistas/V_regristarse.php">Crear cuenta</a>
+                            <a href="../Vistas/V_registrarse.php">Crear cuenta</a>
                         </div>                        
                     </div>
                 </div>

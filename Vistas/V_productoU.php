@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Amor & Moda</title>
     <link rel="stylesheet" href="../Estilos/style.css">
     <!-- Después cambiar en document el nombre del producto -->
 </head>
@@ -56,6 +56,10 @@
     }
     ?>
 </form>
+<?php 
+    require("footer.php");
+?>
 </div>
+
 </body>
 </html>
