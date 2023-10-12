@@ -29,6 +29,7 @@
         <a class="navbar-brand" style="background-color: #000000;" href="../Vistas/V_registrarse.php" > Registrate</a>
     </div>
     <a class="navbar-brand" style="background-color: #000000; margin-left: 1%;" href="../index.php">Home </a>
+    <a class="navbar-brand" style="background-color: #000000; margin-left: 1%;" href="../Controlador/C_cerrarSesion.php">Cerrar Sesion </a>
 </nav>
 
     <br><br><br><br>
@@ -66,7 +67,7 @@
                             <a href="../Vistas/V_error.php">Olvide mi contraseña</a>
                         </div>
                         <div>
-                            <a href="../Vistas/V_regristarse.php">Crear cuenta</a>
+                            <a href="../Vistas/V_registrarse.php">Crear cuenta</a>
                         </div>                        
                     </div>
                 </div>

@@ -14,10 +14,13 @@
         $telefono = $_POST["telefono"];
         $contraseña = $_POST["contraseña"];
         $confirmarContraseña = $_POST["confirmarContraseña"];
-        $esAdmin = 'no';
-
+        $rolElegido = 'usuario';
+        if (isset($_POST["rol"])) {
+            $rolElegido = $_POST["rol"];
+        }
+          
+        
         $errores = array();
-
         //validacion de datos ingresados (nombre y apellido):
         if (empty($nombre) || empty($apellido)) {
             $errores[] = 'Los campos de nombre y apellido son obligatorios.';
@@ -105,7 +108,7 @@
 
                 $hashContrasena = password_hash($contrasenaConSalt, PASSWORD_BCRYPT);
 
-                $conexion->registrarUsuario($nombre, $apellido, $email, $telefono, $saltHex, $hashContrasena, $esAdmin);
+                $conexion->registrarUsuario($nombre, $apellido, $email, $telefono, $saltHex, $hashContrasena, $rolElegido);
             }
         }
 

@@ -11,7 +11,7 @@
 <?php
 // Verificar si el usuario es un administrador
 session_start();
-if (isset($_SESSION['esadmin']) && $_SESSION['esadmin'] === 'si') {
+if (isset($_SESSION['esadmin']) && $_SESSION['esadmin'] === 'administrador') {
     // El usuario es un administrador, muestra el contenido de la vista
 ?>
 
