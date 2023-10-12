@@ -1,5 +1,6 @@
 .navbarCustom{
-    background-color: #f5867f !important;
+    /*background-color: #f5867f !important;*/
+    background-color: #000000 !important;
 }
 
 .navbar-brand{
@@ -20,10 +21,9 @@
     letter-spacing: 0.1rem;
     /* margin: 1rem; */
     padding: 0;
+    color: #ffffff !important;
 }
 
-/* body{
-} */
 
 /* Estilos Contenedor */
 .ContenedorPadre{
@@ -31,12 +31,12 @@
     background-image: url(../img/fondoFlores.jpg);
 
 }
+
 .ContenedorProductos{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin: 0 8rem 0 8rem;
-
 
 }
 
@@ -149,4 +149,11 @@
     letter-spacing: 0.3rem;
     font-weight: 500 !important;
 }
+
+.nav-item:hover .nav-link {
+    color: #ff91b6 !important; 
+  }
+  
+  
+
 
