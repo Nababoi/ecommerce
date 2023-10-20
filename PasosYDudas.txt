@@ -48,7 +48,16 @@ Adaptar todo el diseño del ecommerce al diseño que hizo elias en la parte del 
 cambiar el navbar
 
 Elias:
-Implementar la vista de los vendedores(usuarios)
-Implementar la funcion agregar stock en la vista de la administracion del producto
 Crear el footer
+Implementar la vista del 3er usuario(dueño), este podra
+-Dar de alta, baja y modificar productos
+-Agregar stock a los productos
+-Crear administradores
+-Crear Footer
+
+Lucas:
+Implementar funcionalidad de faltante de stock
+Implementar funcionalidad de cantidad mayor al stock actual(listo)
+implementar funcionalidad que devuelva stock si la compra no se completo(listo)
+
 
