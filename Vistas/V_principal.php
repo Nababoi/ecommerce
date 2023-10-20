@@ -10,6 +10,7 @@
 <body>
 
   <div class="ContenedorPadre">
+    <br><br>
 <div class="ContenedorProductos">
     <?php
     while ($fila = mysqli_fetch_assoc($datosProductos)){?>
@@ -20,7 +21,9 @@
 </h5>
     <p class="card-text">$<?php echo $fila["precio"];?></p>
     <!-- <button type="submit" class="btn btn-primary">Subir</button> -->
-    <a href="Controlador/C_productoU.php?id=<?php echo $fila['id'];?>" class="btn btn-primary">Comprar</a>
+    <div class="btnComprar">
+    <a href="Controlador/C_productoU.php?id=<?php echo $fila['id'];?>" class="btn btn-comprar">Comprar</a>
+    </div>
   </div>
 </div>
 <?php } ?>

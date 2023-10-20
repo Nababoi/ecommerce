@@ -32,29 +32,54 @@ h2 {
 }
 
 nav, .navbar-brand{
-    background-color: #000000;
+    background-color: rgb(0, 0, 0);
+    position: relative; 
+    
 }
 
 .logo{
-
+    max-height: 67px; /* Establece la altura deseada en píxeles */
     margin-left: 30px;
 }
 
 a{
-    background-color: white;
-}
-
-.navbar a.navbar-brand {
-    font-size: 20px; 
-    color: white;
-    display: flex;
+    background-color: #000000;
     
 }
 
-.icono-y-texto {
+.navbar a.navbar-brand{
+    font-size: 20px; 
+    color: white;
+    display: inline-block; /* Hace que el elemento sea un bloque en línea para controlar su tamaño */
+    background-color: #000000;
+    letter-spacing: -0.1px;
+}
+
+.btn.btn-danger{
+    color: rgb(255, 255, 255);
+    display: inline-block; /* Hace que el elemento sea un bloque en línea para controlar su tamaño */
+    background-color: #ec0000;
+    letter-spacing: -0.1px;
+    margin-bottom: 0.5%;
+}
+
+.btnComprar a.btn-comprar{
+    color: rgb(255, 255, 255);
+    display: inline-block; /* Hace que el elemento sea un bloque en línea para controlar su tamaño */
+    background-color: #ff91b6;
+    border-radius: 50px;
+    letter-spacing: -0.1px;
+    margin-bottom: 0.5%;
+}
+
+.navbar a:hover{
+    color: #ff91b6;
+}
+
+.icono-y-texto a{
     color: #ffffff;
     display: inline-flex; /* Establece el contenedor como un flex container */
     align-items: center; /* Centra verticalmente los elementos en el contenedor */
-    
+    margin-left: auto;
   }
   

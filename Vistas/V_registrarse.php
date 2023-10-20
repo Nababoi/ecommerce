@@ -19,32 +19,34 @@
 
 </head>
 
-<?php session_start(); ?>
 <body>
 
-    <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="./navbar.php">
-            <img src="../img/logo.png" class="logo" width="13%" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <?php session_start(); ?>
 
+    <nav class="navbar navbar-expand-lg navbarCustom">
+        <div class="logo">
+        <a href="/ecommerce/index.php">
+            <img src="../img/logo.png" class="logo"  alt="">
+        </a>
+        </div>
+
+        <div class="botones d-none d-lg-block" style="margin-left:auto; ">
         <?php
-        if (isset($_SESSION['nombre'])) {
-            // La sesión está iniciada; el usuario ha iniciado sesión
-           ?> <a class="navbar-brand" style="background-color: #000000; margin-left: 1%;" href="../Controlador/C_cerrarSesion.php">Cerrar Sesion </a> <?php
-        } else {
-            // La sesión no está iniciada; el usuario no ha iniciado sesión
-            ?> 
-            <div class="icono-y-texto">
-                <i class="fas fa-user" style="margin-right: 5%;"></i>
-                <a class="navbar-brand" style="background-color: #000000;" href="./V_login.php"> Iniciar sesion</a>
-            </div>
-            <?php
-        }?>
+            if (isset($_SESSION['nombre'])) {
+                // La sesión está iniciada; el usuario ha iniciado sesión
+            ?> <a class="navbar-brand" style="background-color: #000000; margin-left: 1%;" href="../Controlador/C_cerrarSesion.php">Cerrar Sesion </a> <?php
+            }else {
+                // La sesión no está iniciada; el usuario no ha iniciado sesión
+                ?> 
+
+                    
+                    <a class="navbar-brand" style="background-color: #000000;" href="/ecommerce/Vistas/V_login.php"> Iniciar sesion  <i class="fas fa-user" style="margin-right: 5%;"></i></a>
+
+                <?php
+            }?>
+        </div>
         <a class="navbar-brand" style="background-color: #000000; margin-left: 1%;" href="../index.php">Home </a>
+        
     </nav>
 
     <br><br><br><br>
@@ -120,7 +122,7 @@
                 <div class="row mt-5">
                     <div class="col-12 links text-center">
                         <div>
-                            <a href="./V_login.php">¿Ya tenés una cuenta? Iniciá sesión</a>
+                            <a href="./V_login.php" style="background-color: white;">¿Ya tenés una cuenta? Iniciá sesión</a>
                         </div>
                     </div>
                 </div>

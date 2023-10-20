@@ -26,6 +26,9 @@
             if (password_verify($comprobarContrasena, $hashContrasenaBD)) {
                 session_start();
                 $_SESSION['nombre'] = $fila['nombre'];
+                $_SESSION['apellido'] = $fila['apellido'];
+                $_SESSION['email'] = $fila['email'];
+                $_SESSION['telefono'] = $fila['telefono'];
                 $_SESSION['esadmin'] = $fila['rol'];
                 if ($fila['rol'] == 'administrador') {
                     header("Location: ../Controlador/C_productoCrud.php");
