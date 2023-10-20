@@ -37,6 +37,7 @@ $idProducto = $_GET["id"];
                     <option value="vestido">vestido</option>
                 </select>
             </div>
+            <br>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>

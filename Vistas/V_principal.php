@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Estilos/style.css">
-    <title>Document</title>
+    <title>Amor & Moda</title>
     <!-- Despues cambiar en document el nombre del producto -->
 </head>
 <body>
+
   <div class="ContenedorPadre">
+    <br><br>
 <div class="ContenedorProductos">
     <?php
     while ($fila = mysqli_fetch_assoc($datosProductos)){?>
@@ -19,11 +21,14 @@
 </h5>
     <p class="card-text">$<?php echo $fila["precio"];?></p>
     <!-- <button type="submit" class="btn btn-primary">Subir</button> -->
-    <a href="Controlador/C_productoU.php?id=<?php echo $fila['id'];?>" class="btn btn-primary">Ir</a>
+    <div class="btnComprar">
+    <a href="Controlador/C_productoU.php?id=<?php echo $fila['id'];?>" class="btn btn-comprar">Comprar</a>
+    </div>
   </div>
 </div>
 <?php } ?>
 </div>
+<?php require("footer.php"); ?>
 </div>
 </div>
 </body>

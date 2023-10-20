@@ -24,8 +24,17 @@
 
             // Verifica la contraseña proporcionada con la almacenada en la base de datos
             if (password_verify($comprobarContrasena, $hashContrasenaBD)) {
-                echo "DATOS CORRECTOS!....  (PROVISORIO)";
-                exit;
+                session_start();
+                $_SESSION['nombre'] = $fila['nombre'];
+                $_SESSION['apellido'] = $fila['apellido'];
+                $_SESSION['email'] = $fila['email'];
+                $_SESSION['telefono'] = $fila['telefono'];
+                $_SESSION['esadmin'] = $fila['rol'];
+                if ($fila['rol'] == 'administrador') {
+                    header("Location: ../Controlador/C_productoCrud.php");
+                } else {
+                    header("Location: ../index.php");
+                }
             } 
         }
 
