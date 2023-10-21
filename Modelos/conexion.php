@@ -2,7 +2,7 @@
 $servidor = "localhost";
 $usuario = "root";
 // $contra = "tu_contraseña";
-$db = "eco";
+$db = "ecom";
 
 // Crear una conexión
 $conn = new mysqli($servidor, $usuario, "", $db);
