@@ -36,7 +36,7 @@
             <?php
                 if (isset($_SESSION['nombre'])) {
                 // si el usuario inicio sesion, se muestra 'Cerrar sesion'
-                ?> <a class="navbar-brand"  href="./Controlador/C_cerrarSesion.php">Cerrar Sesion </a> <?php
+                ?> <a class="navbar-brand"  href="/ecommerce/Controlador/C_cerrarSesion.php">Cerrar Sesion </a> <?php
                 }else{
                 // si no inicio sesion, se muestra 'ingresa/registrate'
                 ?> <?php
