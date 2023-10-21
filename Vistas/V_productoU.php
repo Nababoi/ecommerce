@@ -17,7 +17,7 @@
     $mostradoDetalles = false;
     ?>
     <div class="ContenedorProductosU">
-        <form method="POST" id="addToCartForm" action="../Controlador/C_agregarCarrito.php">
+        <form method="POST" id="addToCartForm" action="C_agregarCarrito.php">
             <?php
             while ($fila = mysqli_fetch_assoc($datosProductosU)) {
                 if (!$mostradoDetalles) {
