@@ -14,7 +14,7 @@ class CompraModel {
         if ($stmt->execute()) {
             return true; // Éxito en la compra
         } else {
-            return $stmt->error;
+            return false; // Error en la compra
         }
     }
 }

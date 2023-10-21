@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="../Estilos/style.css">
-    <script src="https://kit.fontawesome.com/e5cc728d9d.js" crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>Amor & Moda</title>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <!-- Mis estilos -->
+  <link rel="stylesheet" href="/ecommerce/Estilos/styleLogin.css">
+</head>
 
-  </head>
-  <body>
-  <script src="../Modelos/detalleProducto.js"></script>
+<body>
+
+  <?php 
+  if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+  }
+  ?>
 
   <nav class="navbar navbar-expand-lg navbarCustom">
     <div class="logo">
@@ -58,9 +66,10 @@
         </div>
         <div class="modal-body">
           <div>
-            <form class="ContenedorFormFiltrado" action="Controlador/C_filtrado.php" method="POST" enctype="multipart/form-data">
+            <form class="ContenedorFormFiltrado" action="/ecommerce/Controlador/C_filtrado.php" method="POST" enctype="multipart/form-data">
               <input type="text" class="form-control" name="producto" />
               <div id="filtrado" class="form-text"></div>
+            </form>
           </div>
         </div>
         <div class="modal-footer">
