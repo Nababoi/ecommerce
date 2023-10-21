@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2023 a las 21:27:12
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 21-10-2023 a las 22:34:34
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -94,7 +94,7 @@ DELIMITER ;
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `categoriaNombre` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `categorias`
@@ -125,7 +125,7 @@ CREATE TABLE `productos` (
   `usuarioMod` varchar(255) DEFAULT NULL,
   `fechaBaja` datetime DEFAULT NULL,
   `usuarioBaja` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -182,7 +182,7 @@ CREATE TABLE `producto_talle` (
   `idProducto` int(11) DEFAULT NULL,
   `idTalle` int(11) DEFAULT NULL,
   `cantidad` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `producto_talle`
@@ -209,9 +209,9 @@ INSERT INTO `producto_talle` (`id`, `idProducto`, `idTalle`, `cantidad`) VALUES
 (59, 18, 4, 100),
 (60, 19, 4, 100),
 (61, 20, 4, 100),
-(93, 1, 3, 100),
-(94, 2, 3, 100),
-(95, 3, 3, 100),
+(93, 1, 3, 98),
+(94, 2, 3, 99),
+(95, 3, 3, 99),
 (96, 4, 3, 100),
 (97, 5, 3, 100),
 (98, 6, 3, 100),
@@ -240,7 +240,7 @@ CREATE TABLE `talle` (
   `id` int(11) NOT NULL,
   `talleCodigo` varchar(4) DEFAULT NULL,
   `talleNombre` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `talle`
@@ -268,17 +268,16 @@ CREATE TABLE `usuarios` (
   `telefono` varchar(50) DEFAULT NULL,
   `valorSalt` varchar(50) DEFAULT NULL,
   `hashContrasena` varchar(100) NOT NULL,
-  `esAdmin` varchar(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `rol` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `telefono`, `valorSalt`, `hashContrasena`, `esAdmin`) VALUES
-(9, 'Elias', 'Alegre', 'eliasalegre96@gmail.com', '01130615889', 'ada07e0f5a8d01eebf257160f31b8e7d', '$2y$10$S1Nah4kkBKLgHJ7vTHtYXO5Exx.bquaiLecH65uez1mdADd2Luc/W', 'no'),
-(12, 'Lucas', 'Navarro', 'navarrolucas4668@gmail.com', '01127535916', '885a9fa3390379f00a5b5ea492eb2a9f', '$2y$10$59JSpFY3N5161vHBnkOu6ez3zG219scm2rHkCAf3anuriqGe.T7vS', 'si'),
-(13, 'pruebaUsuario', 'pa', 'prueba@gmail.com', '1127535913', 'e3c05891a4d7cd98d4e8aa061179cde1', '$2y$10$hOL1Sp48Y6yd.X4aZn047Ox/qoB6K9T.G99XGWzT3tUcuCfW07wsK', 'no');
+INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `telefono`, `valorSalt`, `hashContrasena`, `rol`) VALUES
+(15, 'Elias', 'Alegre', 'eliasalegre96@gmail.com', '01130615889', '98cb78afacc3d72e69f6bdc1fee476c2', '$2y$10$aZ6Ou96BG9J4wzRAn4HVQuU1bjyIx8ijacLCTc8pl81YGe8CvltiC', 'administrador'),
+(17, 'Elias', 'Alegre', 'eliasUsuarioComun@gmail.com', '01130615889', '1731a9bf2700e8fcbaa9a3f6ee8df2b0', '$2y$10$4RoB8ZRv/yTM3hpbtp7wVeQDit8pf16MT7swhGSNS2rIp63U2V4vC', 'usuario');
 
 --
 -- Índices para tablas volcadas
@@ -349,7 +348,7 @@ ALTER TABLE `talle`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restricciones para tablas volcadas
