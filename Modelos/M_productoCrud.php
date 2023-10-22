@@ -5,8 +5,8 @@
 
         public function obtenerProductosCrud(){
             require ("conexion.php");
-            $query = "SELECT p.id, p.nombre, p.precio, c.categoriaNombre from productos p JOIN
-            categorias c on p.categoriaId = c.id;
+            $query = "SELECT p.id, p.nombre, pr.precioVenta, c.categoriaNombre from productos p JOIN precio pr on pr.idProducto = p.id 
+            JOIN categorias c on p.categoriaId = c.id;
             ";
             $stmt = $conn->prepare($query);
             $stmt->execute();

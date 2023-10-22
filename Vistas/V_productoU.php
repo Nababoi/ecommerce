@@ -27,7 +27,7 @@
             echo '</div>';
             echo '<div class="col-md-6 contenedorDetallesU">';
             echo '<input class = "tituloU" type="text" name="nombre" value="' . $fila["nombre"] . '" readonly>';
-            echo '<input class = "precioU" type="number" name="precio" value="' . $fila["precio"] . '" readonly>';
+            echo '<input class = "precioU" type="number" name="precio" value="' . $fila["precioVenta"] . '" readonly>';
             echo '<input type="hidden" name="idU" value="' . $fila["id"] . '" readonly>'; // Input oculto y de solo lectura
             echo '<div class="ContenedorTalles">';
             echo '<div class="ContenedorTalleU">';

@@ -64,7 +64,7 @@
                             <tr>
                                 <td><?php echo $fila['id']; ?></td>
                                 <td><?php echo $fila['nombre']; ?></td>
-                                <td>$<?php echo $fila['precio']; ?></td>
+                                <td>$<?php echo $fila['precioVenta']; ?></td>
                                 <td><?php echo $fila['categoriaNombre']; ?></td>
                                 <td>
                                     <a href="../Vistas/V_formProductoMod.php?id=<?php echo $fila['id'];?>" class="btn btn-warning btn-sm">

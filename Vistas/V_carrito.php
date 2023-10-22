@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/ecommerce/Estilos/style.css">
+    <link rel="stylesheet" href="../Estilos/style.css">
     <!-- Después cambiar en document el nombre del producto -->
 </head>
 <body>
 <?php
 session_start();
-header("navbar.php");
+require("navbar.php");
 
 // Verifica si hay productos en el carrito
 if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
