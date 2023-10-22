@@ -68,4 +68,4 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
 require("footer.php");
 
 ?>
-</body>
+
