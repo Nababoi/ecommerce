@@ -49,10 +49,11 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
     echo '<div class="text-center">';
     echo '<p>Total $: ' . $total . '</p>';
     echo '<form method="post" action="../Controlador/C_realizarCompra.php">
-    <button type="submit" class="btn btn-primary" name="comprar">Pagar</button>
-    </form>
-    ';
+        <input type="hidden" name="total" value="' . $total . '">
+        <button type="submit" class="btn btn-primary" name="pagar">Pagar con M P</button>
+    </form>';
     echo '</div>';
+    
     
     echo '</div>';
 } else {

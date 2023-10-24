@@ -1,13 +1,8 @@
 <?php
 session_start();
 require("../Modelos/M_realizarCompra.php");
-// Conexión a la base de datos
 require("../Modelos/conexion.php");
-$conexion = $conn;
-
-if ($conexion->connect_error) {
-    die("Error al conectar con la base de datos: " . $conexion->connect_error);
-}
+require '../vendor/autoload.php';
 
 // Crear una instancia del modelo
 $compraModel = new CompraModel($conexion);
@@ -32,8 +27,26 @@ if (isset($_POST['comprar'])) {
     // Cierra la conexión a la base de datos
     $conexion->close();
 
-    // Redirige al usuario a una página de confirmación de compra o a donde necesites
-    header("Location: ../Vistas/confirmacion_compra.php");
+    // SDK de Mercado Pago
+    use MercadoPago\MercadoPagoConfig;
+    // Agrega credenciales
+    MercadoPagoConfig::setAccessToken("TU_ACCESS_TOKEN_DE_PRODUCCION"); // Utiliza tu Access Token de producción
+
+    // Aquí debes configurar tu preferencia de pago en Mercado Pago
+    $client = new PreferenceClient();
+    $preference = $client->create([
+      "items"=> array(
+        array(
+          "title" => "Meu produto",
+          "quantity" => 1,
+          "currency_id" => "BRL",
+          "unit_price" => 100
+        )
+      )
+    ]);
+
+    // Redirige al usuario a la página de Mercado Pago para completar el pago
+    header("Location: " . $preference['init_point']);
     exit();
 }
 ?>
