@@ -1,16 +1,12 @@
 <?php
 session_start();
 require("../Modelos/M_realizarCompra.php");
-// Conexión a la base de datos
 require("../Modelos/conexion.php");
-$conexion = $conn;
+require '../vendor/autoload.php';
 
-if ($conexion->connect_error) {
-    die("Error al conectar con la base de datos: " . $conexion->connect_error);
-}
 
 // Crear una instancia del modelo
-$compraModel = new CompraModel($conexion);
+$compraModel = new CompraModel($conn);
 
 if (isset($_POST['comprar'])) {
     // Recorre los productos en el carrito
@@ -22,7 +18,7 @@ if (isset($_POST['comprar'])) {
         if ($compraModel->comprarProducto($productoTalleId, $cantidadVender)) {
             // La compra fue exitosa, puedes hacer algo aquí si es necesario
         } else {
-            echo "Error al ejecutar el procedimiento almacenado: " . mysqli_error($conexion);
+            echo "Error al ejecutar el procedimiento almacenado: " . mysqli_error($conn);
         }
     }
 
@@ -30,10 +26,30 @@ if (isset($_POST['comprar'])) {
     unset($_SESSION['carrito']);
 
     // Cierra la conexión a la base de datos
-    $conexion->close();
+    $conn->close();
 
-    // Redirige al usuario a una página de confirmación de compra o a donde necesites
-    header("Location: ../Vistas/confirmacion_compra.php");
-    exit();
-}
+    
+    //aca va la api de mercado pago
+
+    MercadoPago\SDK::setAccessToken('TEST-4808156112961165-102416-f319912a4a575a0ed10c567e5d0a2bd5-1520338902');
+    $preference = new MercadoPago\Preference();
+
+    $item = new MercadoPago\Item();
+    $item->title = "Compra en Amor & Moda";
+    $item->quantity = 1;
+    $item->unit_price = $total;
+
+    $preference->items = array($item);
+
+    $preference->back_url = array(
+      "success"=>"http://localhost/ecommerce/index.php",
+      "failure"=>"http://localhost/ecommerce/fallo.php");
+        
+    $preference->auto_return = "approved";
+    //esto es para que no haya operaciones en pendiente, solo hay aprobadas o rechazadas
+    $preference->binary_mode = true;
+
+    $preference->save();
+  }
 ?>
+

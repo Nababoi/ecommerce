@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Amor & Moda </title>
     <link rel="stylesheet" href="../Estilos/style.css">
+    <!-- sdk mercado pago -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <!-- script de mercado pago -->
+    <script src="../Modelos/mercadoPago.js"></script>
+
     <!-- Después cambiar en document el nombre del producto -->
 </head>
 <body>
@@ -49,10 +54,13 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
     echo '<div class="text-center">';
     echo '<p>Total $: ' . $total . '</p>';
     echo '<form method="post" action="../Controlador/C_realizarCompra.php">
-    <button type="submit" class="btn btn-primary" name="comprar">Pagar</button>
-    </form>
-    ';
+        <input type="hidden" name="total" value="' . $total . '">
+        <div id="wallet_container">
+        <button type="submit" class="btn btn-primary" name="pagar">Pagar con M P</button>
+        </div>
+    </form>';
     echo '</div>';
+    
     
     echo '</div>';
 } else {
