@@ -34,7 +34,22 @@
                     <option value="vestido">vestido</option>
                 </select>
             </div>
-            <br>
+
+        <div class="form-group">
+            <label for="talle">Talle:</label>
+            <select class="form-control" id="talle" name="talle">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <!-- Agrega más opciones según tus necesidades -->
+            </select>
+        </div>
+
+    <div class="form-group">
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" class="form-control" id="cantidad" name="cantidad">
+    </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
