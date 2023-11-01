@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Producto</title>
-    <link rel="stylesheet" href="../Estilos/style.css">
+    <link rel="stylesheet" href="/ecommerce/Estilos/style.css">
 
 </head>
 <body>
@@ -24,6 +24,9 @@
                 <label for="precio">Precio:</label>
                 <input type="text" class="form-control" id="precio" name="precio">
             </div>
+                <div class="form-group">
+        <label for="cantidad">Porcentaje ganancia:</label>
+        <input type="number" class="form-control" id="ganancia" name="ganancia">
             <div class="form-group">
                 <label for="categoria">Categoría:</label>
                 <select class="form-control" id="categoria" name="categoria">
@@ -38,10 +41,13 @@
         <div class="form-group">
             <label for="talle">Talle:</label>
             <select class="form-control" id="talle" name="talle">
+                <option value="XS">XS</option>
                 <option value="S">S</option>
                 <option value="M">M</option>
                 <option value="L">L</option>
                 <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+
                 <!-- Agrega más opciones según tus necesidades -->
             </select>
         </div>

@@ -3,11 +3,11 @@
     class ProductosModCrud{
         private $conn;
 
-        public function ModProducto($id,$nombre, $precio, $categoria){
+        public function ModProducto($id, $nombre, $precio, $porcentajeGanancia, $categoria, $talle, $cantidad){
             require("conexion.php");
-            $query = "call modProducto(?,?,?,?)";
+            $query = "call modificarProducto(?,?,?,?,?,?,?)";
             $stmt = $conn->prepare($query);
-            $stmt->bind_param("ssss",$id, $nombre, $precio, $categoria);
+            $stmt->bind_param("sssssss", $id, $nombre, $precio, $porcentajeGanancia, $categoria, $talle, $cantidad);
             $stmt->execute();
             header("Location: ../index.php");
             return $stmt->affected_rows;
