@@ -17,7 +17,7 @@ $idProducto = $_GET["id"];
         <h1>Formulario de Producto</h1>
         <form action="../Controlador/C_agregarStock.php" method="POST">
         <div class="form-group">
-                <input type="hidden" class="form-control" id="id" name="id">
+                <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $idProducto;?>">
             </div>
 
         <div class="form-group">
