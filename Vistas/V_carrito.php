@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="../Estilos/style.css">
     <!-- sdk mercado pago -->
     <script src="https://sdk.mercadopago.com/js/v2"></script>
-    <!-- script de mercado pago -->
-    <script src="../Modelos/mercadoPago.js"></script>
 
     <!-- Después cambiar en document el nombre del producto -->
 </head>
@@ -55,13 +53,10 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
     echo '<p>Total $: ' . $total . '</p>';
     echo '<form method="post" action="../Controlador/C_realizarCompra.php">
         <input type="hidden" name="total" value="' . $total . '">
-        <div id="wallet_container">
-        <button type="submit" class="btn btn-primary" name="pagar">Pagar con M P</button>
-        </div>
     </form>';
+    echo '<div>';
+    echo '<a id="wallet_container"></a>';
     echo '</div>';
-    
-    
     echo '</div>';
 } else {
     echo '<div class="container mt-5">';
@@ -74,6 +69,21 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
 
 //footer
 require("footer.php");
-
 ?>
 
+<?php
+    require("../Controlador/C_mercadoPago.php");
+?>
+
+<script>
+    const mp = new MercadoPago('TEST-ac97768c-0f18-44e5-9163-e528aa447305');
+    const bricksBuilder = mp.bricks();
+
+    mp.bricks().create("wallet", "wallet_container", {
+    initialization: {
+       preferenceId: "<?php echo $preference->id;?>",
+   },
+});
+
+
+</script>

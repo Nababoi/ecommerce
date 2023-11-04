@@ -28,6 +28,7 @@
 </div>
 <?php } ?>
 </div>
+<?php require("V_chatbots.php"); ?>
 <?php require("footer.php"); ?>
 </div>
 </div>

@@ -1,9 +1,8 @@
 <?php
-session_start();
 require("../Modelos/M_realizarCompra.php");
 require("../Modelos/conexion.php");
-require '../vendor/autoload.php';
 
+session_start();
 
 // Crear una instancia del modelo
 $compraModel = new CompraModel($conn);
@@ -27,29 +26,7 @@ if (isset($_POST['comprar'])) {
 
     // Cierra la conexión a la base de datos
     $conn->close();
-
-    
-    //aca va la api de mercado pago
-
-    MercadoPago\SDK::setAccessToken('TEST-4808156112961165-102416-f319912a4a575a0ed10c567e5d0a2bd5-1520338902');
-    $preference = new MercadoPago\Preference();
-
-    $item = new MercadoPago\Item();
-    $item->title = "Compra en Amor & Moda";
-    $item->quantity = 1;
-    $item->unit_price = $total;
-
-    $preference->items = array($item);
-
-    $preference->back_url = array(
-      "success"=>"http://localhost/ecommerce/index.php",
-      "failure"=>"http://localhost/ecommerce/fallo.php");
-        
-    $preference->auto_return = "approved";
-    //esto es para que no haya operaciones en pendiente, solo hay aprobadas o rechazadas
-    $preference->binary_mode = true;
-
-    $preference->save();
   }
 ?>
+
 
