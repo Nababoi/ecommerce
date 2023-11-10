@@ -1,6 +1,4 @@
 <?php
-require("conexion.php");
-
 class Chatbots
 {
     public function getResponse($userMessage)
