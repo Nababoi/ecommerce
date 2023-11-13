@@ -9,7 +9,6 @@
             $stmt = $conn->prepare($query);
             $stmt->bind_param("sss",$id, $talle, $cantidad);
             $stmt->execute();
-            header("Location: ../index.php");
             return $stmt->affected_rows;
         }
 

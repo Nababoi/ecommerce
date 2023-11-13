@@ -5,6 +5,7 @@
     // require("../Vista/V_VistaHambur.php");
     $eliminar = new ProductoBorrar();
     $eliminar->eliminarProducto($_GET['id']);
+    header("Location: ../index.php");
     // }
     ?>
 

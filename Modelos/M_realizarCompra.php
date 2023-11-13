@@ -1,5 +1,5 @@
 <?php
-class CompraModel {
+class CompraModel{
     private $conexion;
 
     public function __construct($conexion) {
@@ -12,7 +12,7 @@ class CompraModel {
         $stmt->bind_param("ii", $productoTalleId, $cantidadVender);
 
         if ($stmt->execute()) {
-            return true; // Éxito en la compra
+            return $stmt->affected_rows;
         } else {
             return false; // Error en la compra
         }

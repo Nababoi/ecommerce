@@ -15,28 +15,7 @@ class RegistarUsuarios {
 
             $resultado->execute();
             
-            return;
-        }catch(Exception $e){
-            header("Location: ../Vistas/V_error.php");
-        }
-    }
-
-    public function checkMailRegistrado($email) {
-        require("conexion.php");
-
-        try {
-            $query = "SELECT * FROM usuarios WHERE email = ?";
-                
-            $resultado = $conn->prepare($query);
-
-            $resultado->bind_param("s", $email);
-
-            $resultado->execute();
-
-            $resultado = $resultado->get_result();
-            
-            return $resultado;
-
+            return true;
         }catch(Exception $e){
             header("Location: ../Vistas/V_error.php");
         }

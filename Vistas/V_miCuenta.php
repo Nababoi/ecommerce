@@ -22,7 +22,7 @@
 <?php session_start(); ?>
 <nav class="navbar navbar-expand-lg navbarCustom">
     <div class="logo">
-      <a href="/ecommerce/Vistas/navbar.php">
+      <a href="/ecommerce/index.php">
           <img src="/ecommerce/img/logo.png" class="logo"  alt="">
       </a>
     </div>
