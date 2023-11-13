@@ -85,5 +85,4 @@ require("footer.php");
    },
 });
 
-
 </script>

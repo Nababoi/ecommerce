@@ -5,7 +5,7 @@
     use MercadoPago\MercadoPagoConfig;
 
     MercadoPagoConfig::setAccessToken("TEST-4808156112961165-102416-f319912a4a575a0ed10c567e5d0a2bd5-1520338902");
-
+    
     $client = new PreferenceClient();
     $preference = $client->create([
     "items"=> array(
