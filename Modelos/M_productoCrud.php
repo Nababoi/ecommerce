@@ -19,7 +19,6 @@
             $stmt = $conn->prepare($query);
             $stmt->bind_param("ssssss", $nombre, $precio, $porcentajeGanancia, $categoria, $talle, $cantidad);
             $stmt->execute();
-            header("Location: ../index.php");
             return $stmt->affected_rows;
         }
 

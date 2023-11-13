@@ -5,6 +5,21 @@ $usuario = "root";
 $db = "ecom";
 
 // Crear una conexión
-$conn = new mysqli($servidor, $usuario, "", $db);
+//$conn = new mysqli($servidor, $usuario, "", $db);
+
+try{
+    $conn = new mysqli($servidor, $usuario, "", $db);
+}catch (mysqli_sql_exception $e){
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    session_destroy();
+
+    // Pagina de error:
+    header("Location: ./Vistas/V_error.php");
+    exit; 
+}
+
+
 
 ?>

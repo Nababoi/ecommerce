@@ -14,7 +14,7 @@ class ProductoBorrar{
         $stmt = $conn->prepare($query);
         $stmt->bind_param("ss", $fechaActual, $id);
         $stmt->execute();
-        header("Location: ../index.php");
+        
         return $stmt->affected_rows;
     }
 }
