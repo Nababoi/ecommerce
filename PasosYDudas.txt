@@ -1,0 +1,54 @@
+-Dentro del archivo V_productoU.php ver como tomar los datos para que se llame a un procedure
+implementado en la base de datos y que reste la cantidad tomada de esa vista y la reste
+con el total en la tabla producto_talle.(listo)
+
+-Ver si es mejor tomar los datos mencionados mediante el id con js o enviar los datos mediante
+un form.(En caso de enviar los datos con un form modificar los inputs 
+para que sean de solo lectura y modificar el diseño del input para que parezca 
+mas informacion que entrada de datos)
+(LISTO, se uso formulario, habria que modificarlo para que se agregue a un carrito
+y del carrito se implemente esto, pero la funcionalidad ya esta)
+
+-Ver tdd(ni idea)
+
+-Hacer la parte del admin(crud de productos y usuarios(facilito))
+(Falta crud de usuarios y vendedores)
+
+-Implementar el carrito de compras(listo)
+
+-Crear las otras secciones del sitio(nosotros,contacto,como comprar)
+
+-Ver como se enviar un mail a un correo que se pasa por formulario
+
+-Ver como implementar el patron singleton, segun lo que dijo el profe en el caso de que 
+2 personas esten comprando el mismo producto que pasa si solo hay una unidad de este.
+(Lo que pense fue que cuando haya menos de 5 prendas de ese producto que en 
+el sitio web no se pueda comprar mas)
+
+-Ver como crear un usuario con la api de mercado pago e implementar su api con el procedure
+que resta la cantidad. Los pasos:
+1-Busca el producto
+2-Selecciona el producto
+3-Elije la cantidad y el talle
+4-Le da a agregar carrito
+5-Vamos al carrito y le damos a comprar
+6-Que la api haga su magia (Agarrar o implementar el msj de ok que nos dice si sale bien)
+7-Si el msj sale bien llamar a la funcion del procedure que resta la cantidad seleccionada
+8-Crear una factura con los datos correspondientes
+
+-Hacerlo responsive(dejarlo para el final y es opcional :p)
+
+-Hacer el diagrama de clases (AAAAAAAAAAAAHHHH)
+
+-Crear footer
+
+Hugo:
+Implementar la api de MP
+Adaptar todo el diseño del ecommerce al diseño que hizo elias en la parte del registro de usuario
+cambiar el navbar
+
+Elias:
+Implementar la vista de los vendedores(usuarios)
+Implementar la funcion agregar stock en la vista de la administracion del producto
+Crear el footer
+
