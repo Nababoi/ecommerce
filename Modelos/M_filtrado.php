@@ -7,7 +7,7 @@ class FiltradoProductos {
         require("conexion.php");
 
         // Utiliza una consulta preparada para evitar la inyección de SQL
-        $query = "SELECT * FROM productos WHERE nombre LIKE ?";
+        $query = "SELECT * FROM productos WHERE nombre LIKE CONCAT('%', ?, '%') AND usuarioBaja is NULL";
         $stmt = $conn->prepare($query);
 
         // Enlazamos el parámetro y ejecutamos la consulta

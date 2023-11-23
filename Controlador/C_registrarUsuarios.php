@@ -97,7 +97,7 @@
                         });
                     </script>';
                     require '../Vistas/V_registrarse.php';
-                    header("Location: ../Vistas/V_registrarse.php");
+                    //header("Location: ../Vistas/V_registrarse.php");
             }else{
                 // Genera un salt aleatorio
                 $salt = random_bytes(16); 
@@ -109,16 +109,19 @@
                 $hashContrasena = password_hash($contrasenaConSalt, PASSWORD_BCRYPT);
 
                 $conexion->registrarUsuario($nombre, $apellido, $email, $telefono, $saltHex, $hashContrasena, $rolElegido);
-            }
+
+                require '../Vistas/V_login.php';
+
+                echo '<script>
+                        var check = document.getElementById("checkCuentaCreada")
+                        check.style.display = "block"
+                    </script>';
+
+        }
         }
 
 
     }
 
-    require '../Vistas/V_login.php';
 
-    echo '<script>
-            var check = document.getElementById("checkCuentaCreada")
-            check.style.display = "block"
-        </script>';
 ?>

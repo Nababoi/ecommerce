@@ -10,7 +10,7 @@
 
     <!-- Después cambiar en document el nombre del producto -->
 </head>
-<body>
+<body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
 <?php
 session_start();
 require("navbar.php");
@@ -66,10 +66,14 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
 
 // Puedes agregar un botón de compra o continuar comprando aquí
 
-
-//footer
-require("footer.php");
 ?>
+</div>
+
+<footer class="footer" style="margin-top: auto;"> <?php
+//footer
+ require("footer.php"); 
+?> 
+</footer> 
 
 <?php
     require("../Controlador/C_mercadoPago.php");
@@ -84,7 +88,6 @@ require("footer.php");
        preferenceId: "<?php echo $preference->id;?>",
    },
 });
-
 
 
 </script>
