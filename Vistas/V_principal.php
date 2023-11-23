@@ -8,7 +8,6 @@
     <!-- Despues cambiar en document el nombre del producto -->
 </head>
 <body>
-
   <div class="ContenedorPadre">
     <br><br>
 <div class="ContenedorProductos">
@@ -28,7 +27,6 @@
 </div>
 <?php } ?>
 </div>
-<?php require("V_chatbots.php"); ?>
 <?php require("footer.php"); ?>
 </div>
 </div>

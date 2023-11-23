@@ -51,9 +51,14 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
     // Muestra la suma total de todos los productos
     echo '<div class="text-center">';
     echo '<p>Total $: ' . $total . '</p>';
-    echo '<form method="post" action="../Controlador/C_realizarCompra.php">
-        <input type="hidden" name="total" value="' . $total . '">
-    </form>';
+    echo '<form method="post" action="../Controlador/C_realizarCompra.php">';
+    foreach ($_SESSION['carrito'] as $producto) {
+        echo '<input type="hidden" name="idU[]" value="' . $producto['idU'] . '">';
+        echo '<input type="hidden" name="cantidad[]" value="' . $producto['cantidad'] . '">';
+    }
+    echo '<input type="hidden" name="total" value="' . $total . '">';
+    echo '<button type="submit" name="comprar" class="btn btn-primary">Comprar</button>';
+    echo '</form>';
     echo '<div>';
     echo '<a id="wallet_container"></a>';
     echo '</div>';
@@ -66,8 +71,7 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
 
 // Puedes agregar un botón de compra o continuar comprando aquí
 
-
-//footer
+// Footer
 require("footer.php");
 ?>
 
@@ -86,3 +90,5 @@ require("footer.php");
 });
 
 </script>
+</body>
+</html>
