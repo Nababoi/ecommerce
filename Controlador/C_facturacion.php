@@ -1,21 +1,27 @@
 <?php
-require_once('../vendor/autoload.php');
-require("../Controlador/C_mercadoPago.php");
+    require_once('../vendor/autoload.php');
+    require("../Controlador/C_mercadoPago.php");
 
-// Crear una nueva instancia de TCPDF
-$pdf = new TCPDF();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 
-// Agregar una página al PDF
-$pdf->AddPage();
+    if (isset($_SESSION['total'])) {
+        
+        $total = $_SESSION['total'];
 
-if(isset($total)){
-    $pdf->writeHTML("Precio total: $" . $total);
+        // Crear una nueva instancia de TCPDF
+        $pdf = new TCPDF();
 
-    // Establecer el nombre del archivo PDF que se descargará
-    $filename = 'factura.pdf';
+        // Agregar una página al PDF
+        $pdf->AddPage();
 
-    // Salida del PDF a la pantalla
-    $pdf->Output($filename, 'D');
-}
+        $pdf->writeHTML("Precio total: $" . $total);
 
+        // Establecer el nombre del archivo PDF que se descargará
+        $filename = 'factura.pdf';
+
+        // Salida del PDF a la pantalla
+        $pdf->Output($filename, 'D');
+    }
 ?>

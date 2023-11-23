@@ -1,7 +1,7 @@
 <?php
 
 require_once('../vendor/autoload.php');
-$pdf = new TCPDF();
+//$pdf = new TCPDF();
 
 if (isset($_GET['status'])) {
     $status = $_GET['status'];
