@@ -24,10 +24,10 @@
     
      $preference->binary_mode = true;
      $preference->back_urls = array(
-         "success" => "",
+         "success" => "http://www.misitio.com.ar",
          "failure" => ""
      );
-     $preference->auto_return = "approved";
+     //$preference->auto_return = "approved";
      
  
      
