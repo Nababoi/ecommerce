@@ -73,11 +73,9 @@
                                     <a href="../Controlador/C_productoBorrar.php?id=<?php echo $fila['id'];?>" class="btn btn-danger btn-sm">
                                         <i class="fas fa-trash"></i> Eliminar
                                     </a>
-                                </td>
-                                <td class= "btn-success">
-                                <i class="fas fa-plus b"></i> 
-                                <a href="../Vistas/V_formAgregarStock.php?id=<?php echo $fila['id'];?>">Agregar stock</a>
-
+                                    <a href="../Vistas/V_formAgregarStock.php?id=<?php echo $fila['id'];?>" class= "btn btn-success btn-sm">
+                                        <i class="fas fa-plus b"></i>  Agregar stock
+                                    </a>
                                 </td>
                             </tr>
                         <?php } ?>

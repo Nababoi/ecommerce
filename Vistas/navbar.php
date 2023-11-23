@@ -33,7 +33,7 @@
     </div>
     <div class="botones d-none d-lg-block" style="margin-left:auto; ">
       <a class="navbar-brand " data-bs-toggle="modal" data-bs-target="#exampleModal">Buscar  <i class="fas fa-search" ></i></a>
-      <a class="navbar-brand " data-bs-toggle="modal" data-bs-target="#carritoModal">Carrito  <i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+      <a class="navbar-brand " href="/ecommerce/Vistas/V_carrito.php">Carrito  <i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
       <?php
         if (isset($_SESSION['nombre'])) {
           // si el usuario inicio sesion, se muestra 'Cerrar sesion'
@@ -67,14 +67,18 @@
         <div class="modal-body">
           <div>
             <form class="ContenedorFormFiltrado" action="/ecommerce/Controlador/C_filtrado.php" method="POST" enctype="multipart/form-data">
-              <input type="text" class="form-control" name="producto" />
-              <div id="filtrado" class="form-text"></div>
+              <div class="modal-body">   
+                <div>
+                  <input type="text" class="form-control" name="producto" />
+                  <div id="filtrado" class="form-text"></div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+              </div>
             </form>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Subir</button>
         </div>
       </div>
     </div>

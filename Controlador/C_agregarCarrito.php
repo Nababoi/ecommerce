@@ -9,6 +9,10 @@ if (isset($_POST['agregarCarrito'])) {
     $talla = $_POST['talla'];
     $cantidad = $_POST['cantidad'];
 
+    if ($cantidad <= 0 ){
+        header("Location: ../Vistas/V_error.php");
+    }else{
+
     // Crea un array para representar el producto
     $producto = array(
         'idU' => $idU, // Agrega el ID al array del producto
@@ -42,6 +46,7 @@ if (isset($_POST['agregarCarrito'])) {
     // Redirige al usuario a la página del carrito
     header("Location: ../Vistas/V_carrito.php");
     exit(); // Asegúrate de que el script se detenga después de la redirección
+}
 }
 
 // Resto del código del controlador...

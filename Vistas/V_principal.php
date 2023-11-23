@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Estilos/style.css">
+    <link rel="stylesheet" href="/ecommerce/estilos/style.css">
     <title>Amor & Moda</title>
     <!-- Despues cambiar en document el nombre del producto -->
 </head>
@@ -21,7 +21,10 @@
     <p class="card-text">$<?php echo $fila["precioVenta"];?></p>
     <!-- <button type="submit" class="btn btn-primary">Subir</button> -->
     <div class="btnComprar">
-    <a href="Controlador/C_productoU.php?id=<?php echo $fila['id'];?>" class="btn btn-comprar">Comprar</a>
+      <form action="/ecommerce/Controlador/C_productoU.php" method="POST">
+        <input type="hidden" name="id" value="<?php echo $fila['id']; ?>">
+        <button class="btn-comprar">COMPRAR</button>
+    </form>
     </div>
   </div>
 </div>
