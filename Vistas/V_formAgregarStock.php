@@ -36,7 +36,7 @@ $idProducto = $_GET["id"];
 
     <div class="form-group">
         <label for="cantidad">Cantidad:</label>
-        <input type="number" class="form-control" id="cantidad" name="cantidad">
+        <input type="number" class="form-control" id="cantidad" name="cantidad" min="0">
     </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>

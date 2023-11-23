@@ -47,7 +47,7 @@
         echo '</select>';
         echo '</div>'; // Cerrar el div ContenedorTalleU
         echo '</div>'; // Cerrar el div ContenedorTalles
-        echo '<input type="number" name="cantidad" class="form-control text-center inputU" id="cantidad" value="1">';
+        echo '<input type="number" name="cantidad" class="form-control text-center inputU" id="cantidad" value="1" min="1">';
 
         echo '<button type="submit" class="btn botonU btn-block" name="agregarCarrito" id="comprar">Comprar</button>';
         echo '</div>'; // Cerrar el div contenedorDetallesU

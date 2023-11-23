@@ -83,3 +83,14 @@ a{
     margin-left: auto;
   }
   
+.btn-comprar{
+    color: rgb(255, 255, 255);
+    border: none;
+    display: inline-block; /* Hace que el elemento sea un bloque en línea para controlar su tamaño */
+    background-color: #ff91b6;
+    border-radius: 50px;
+    letter-spacing: -0.1px;
+    margin-bottom: 0.5%;
+    padding: 5px 15px !important;
+}
+
