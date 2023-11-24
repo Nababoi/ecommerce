@@ -46,6 +46,9 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
         
         $subtotal = $producto['precio'] * $producto['cantidad'];
         $total += $subtotal;
+
+        //agarro el total para mandarlo a C_facturacion...
+        $_SESSION['total'] = $total;
     }
 
     // Muestra la suma total de todos los productos
