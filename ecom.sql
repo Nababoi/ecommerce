@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2023 a las 13:56:51
+-- Tiempo de generación: 25-11-2023 a las 00:25:17
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -73,7 +73,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `agregarStock` (IN `p_idProducto` IN
     END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `altaProducto` (IN `p_nombre` VARCHAR(255), IN `p_precio` DECIMAL(10,2), IN `p_porcentajeGanancia` DECIMAL(10,2), IN `p_categoriaNombre` VARCHAR(255), IN `p_talleCodigo` VARCHAR(255), IN `p_cantidad` INT)   BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `altaProducto` (IN `p_nombre` VARCHAR(255), IN `p_precio` DECIMAL(10,2), IN `p_porcentajeGanancia` DECIMAL(10,2), IN `p_categoriaNombre` VARCHAR(255), IN `p_talleCodigo` VARCHAR(255), IN `p_cantidad` INT, IN `p_img` VARCHAR(255))   BEGIN
     DECLARE v_idProducto INT;
     DECLARE v_idCategoria INT;
     DECLARE v_idTalle INT;
@@ -85,7 +85,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `altaProducto` (IN `p_nombre` VARCHA
     SELECT id INTO v_idTalle FROM talle WHERE talleCodigo = p_talleCodigo;
 
     -- Insertar el producto en la tabla productos
-    INSERT INTO productos (nombre, categoriaId) VALUES (p_nombre, v_idCategoria);
+    INSERT INTO productos (nombre, categoriaId, img) VALUES (p_nombre, v_idCategoria, p_img);
 
     -- Obtener el ID del producto recién insertado
     SET v_idProducto = LAST_INSERT_ID();
@@ -123,7 +123,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `compraProducto` (IN `p_ProductoTall
     WHERE id = p_ProductoTalleId;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarProducto` (IN `p_idProducto` INT, IN `p_nombre` VARCHAR(255), IN `p_precio` DECIMAL(10,2), IN `p_porcentajeGanancia` DECIMAL(10,2), IN `p_categoriaNombre` VARCHAR(255), IN `p_talleCodigo` VARCHAR(255), IN `p_cantidad` INT)   BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarProducto` (IN `p_idProducto` INT, IN `p_nombre` VARCHAR(255), IN `p_precio` DECIMAL(10,2), IN `p_porcentajeGanancia` DECIMAL(10,2), IN `p_categoriaNombre` VARCHAR(255), IN `p_talleCodigo` VARCHAR(255), IN `p_cantidad` INT, IN `p_img` VARCHAR(255))   BEGIN
     DECLARE v_idCategoria INT;
     DECLARE v_idTalle INT;
 
@@ -145,9 +145,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarProducto` (IN `p_idProduct
     WHERE idProducto = p_idProducto;
 
     -- Actualizar la información del producto y el talle en la tabla producto_talle
-    UPDATE producto_talle
-    SET idTalle = v_idTalle, cantidad = p_cantidad
-    WHERE idProducto = p_idProducto;
+UPDATE productos 
+    SET nombre = p_nombre, 
+        precio = p_precio, 
+        categoriaId = v_idCategoria, 
+        img = p_img
+    WHERE id = p_idProducto;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `modProducto` (IN `p_id` INT, IN `p_nombre` VARCHAR(20), IN `p_precio` INT, IN `p_categoria` VARCHAR(20))   BEGIN
@@ -226,7 +229,11 @@ INSERT INTO `precio` (`id`, `idProducto`, `precioCosto`, `porcentajeGanancia`) V
 (126, 34, 7000, 22),
 (127, 35, 3000, 10),
 (128, 36, 7000, 15),
-(129, 37, 8000, 15);
+(129, 37, 9700, 12),
+(130, 38, 4500, 12),
+(131, 39, 9700, 12),
+(132, 40, 5000, 10),
+(133, 41, 4000, 15);
 
 -- --------------------------------------------------------
 
@@ -277,8 +284,12 @@ INSERT INTO `productos` (`id`, `nombre`, `precio`, `categoriaId`, `img`, `fechaA
 (33, 'prueba2', NULL, 1, NULL, '2023-10-29 08:41:54', 'root@localhost', NULL, NULL, NULL, NULL),
 (34, 'editadoPrueba', NULL, 1, NULL, '2023-10-29 08:43:55', 'root@localhost', '2023-11-03 19:00:52', 'root@localhost', '2023-10-29 15:31:24', 'root@localhost'),
 (35, 'pruebaEdit', NULL, 3, NULL, '2023-10-29 08:51:53', 'root@localhost', '2023-10-29 10:18:33', 'root@localhost', '2023-10-29 14:18:33', 'root@localhost'),
-(36, 'pruebaClase', NULL, 3, NULL, '2023-11-03 18:40:31', 'root@localhost', NULL, NULL, NULL, NULL),
-(37, 'PruebaViernesCambio', NULL, 1, NULL, '2023-11-10 16:36:23', 'root@localhost', '2023-11-10 16:46:55', 'root@localhost', NULL, NULL);
+(36, 'pruebaClase', NULL, 3, NULL, '2023-11-03 18:40:31', 'root@localhost', '2023-11-23 20:40:24', 'root@localhost', '2023-11-24 00:40:24', 'root@localhost'),
+(37, 'PruebaViernesCambioS', NULL, 3, NULL, '2023-11-10 16:36:23', 'root@localhost', '2023-11-23 20:40:40', 'root@localhost', '2023-11-24 00:40:40', 'root@localhost'),
+(38, 'image', 4500, 3, 'img/margie.webp', '2023-11-23 20:35:36', 'root@localhost', '2023-11-24 16:23:06', 'root@localhost', '2023-11-24 20:23:06', 'root@localhost'),
+(39, 'pruebaProc', NULL, 3, 'img/logo.png', '2023-11-23 20:53:31', 'root@localhost', '2023-11-24 16:22:51', 'root@localhost', '2023-11-24 20:22:51', 'root@localhost'),
+(40, 'pruebaFinal', NULL, NULL, 'img/helen.webp', '2023-11-24 11:56:39', 'root@localhost', '2023-11-24 16:35:47', 'root@localhost', NULL, 'algo'),
+(41, 'pruebaModificacion', 4000, 2, 'img/allegra.webp', '2023-11-24 12:17:27', 'root@localhost', '2023-11-24 16:39:03', 'root@localhost', NULL, NULL);
 
 --
 -- Disparadores `productos`
@@ -317,12 +328,12 @@ CREATE TABLE `producto_talle` (
 
 INSERT INTO `producto_talle` (`id`, `idProducto`, `idTalle`, `cantidad`) VALUES
 (42, 1, 4, 98),
-(43, 2, 4, 96),
-(44, 3, 4, 99),
+(43, 2, 4, 94),
+(44, 3, 4, 98),
 (45, 4, 4, 100),
 (46, 5, 4, 100),
 (47, 6, 4, 100),
-(48, 7, 4, 100),
+(48, 7, 4, 99),
 (49, 8, 4, 100),
 (50, 9, 4, 100),
 (51, 10, 4, 100),
@@ -368,7 +379,14 @@ INSERT INTO `producto_talle` (`id`, `idProducto`, `idTalle`, `cantidad`) VALUES
 (142, NULL, 1, 1000),
 (143, 36, 3, 10),
 (148, 34, 1, 65),
-(149, 37, 1, 61);
+(149, 37, 3, 50),
+(151, 37, 6, 160),
+(152, 38, 5, 150),
+(153, 38, 5, 150),
+(154, 39, 5, 150),
+(159, 3, 2, 11),
+(160, 40, 4, 150),
+(161, 41, 5, 150);
 
 -- --------------------------------------------------------
 
@@ -478,19 +496,19 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `precio`
 --
 ALTER TABLE `precio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `producto_talle`
 --
 ALTER TABLE `producto_talle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
 -- AUTO_INCREMENT de la tabla `talle`
