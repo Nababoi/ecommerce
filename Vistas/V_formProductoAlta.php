@@ -12,7 +12,7 @@
 
     <div class="container mt-4">
         <h1>Formulario de Producto</h1>
-        <form action="../Controlador/C_productoAlta.php" method="POST">
+        <form action="../Controlador/C_productoAlta.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
                 <input type="hidden" class="form-control" id="id" name="id">
             </div>
@@ -56,6 +56,11 @@
         <label for="cantidad">Cantidad:</label>
         <input type="number" class="form-control" id="cantidad" name="cantidad">
     </div>
+    <div class="form-group">
+    <label for="imagen">Imagen:</label>
+    <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
+    </div>
+
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>

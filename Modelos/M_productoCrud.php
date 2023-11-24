@@ -13,13 +13,12 @@
             $resultado = $stmt->get_result();
             return $resultado;
     }
-        public function altaProducto($nombre, $precio, $porcentajeGanancia, $categoria, $talle, $cantidad){
+        public function altaProducto($nombre, $precio, $porcentajeGanancia, $categoria, $talle, $cantidad, $img){
             require("conexion.php");
-            $query = "call altaProducto(?,?,?,?,?,?)";
+            $query = "call altaProducto(?,?,?,?,?,?,?)";
             $stmt = $conn->prepare($query);
-            $stmt->bind_param("ssssss", $nombre, $precio, $porcentajeGanancia, $categoria, $talle, $cantidad);
+            $stmt->bind_param("sssssss", $nombre, $precio, $porcentajeGanancia, $categoria, $talle, $cantidad, $img);
             $stmt->execute();
-            return $stmt->affected_rows;
         }
 
     }

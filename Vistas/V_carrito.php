@@ -53,8 +53,8 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
     echo '<p>Total $: ' . $total . '</p>';
     echo '<form method="post" action="../Controlador/C_realizarCompra.php">';
     foreach ($_SESSION['carrito'] as $producto) {
-        echo '<input type="hidden" name="idU[]" value="' . $producto['idU'] . '">';
-        echo '<input type="hidden" name="cantidad[]" value="' . $producto['cantidad'] . '">';
+        echo '<input type="hidden" name="idU" value="' . $producto['idU'] . '">';
+        echo '<input type="hidden" name="cantidad" value="' . $producto['cantidad'] . '">';
     }
     echo '<input type="hidden" name="total" value="' . $total . '">';
     echo '<button type="submit" name="comprar" class="btn btn-primary">Comprar</button>';
