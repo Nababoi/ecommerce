@@ -3,10 +3,8 @@
 use PHPUnit\Framework\TestCase;
 require_once __DIR__ . '/../Modelos/M_realizarCompra.php';
 
-
 class M_realizarCompraTest extends TestCase {
     
-
     public function testComprarProducto() {
         require_once __DIR__ . '/../Modelos/conexion.php';
 
@@ -23,11 +21,6 @@ class M_realizarCompraTest extends TestCase {
         // Verifica que las filas afectadas sean mayor a 1
         $this->assertGreaterThan(1, $resultado, 'Error testEliminarProductoExistente: La consulta no devolvió registros');
 
-
-
-
-
-
         //datos de prueba invalidos
         $productoTalleId = 9999; 
         $cantidadVender = 1; 
@@ -40,5 +33,4 @@ class M_realizarCompraTest extends TestCase {
         $this->assertEquals(0, $resultado, 'Error testEliminarProductoExistente: La consulta no devolvió registros');
     
     }
-
 }
